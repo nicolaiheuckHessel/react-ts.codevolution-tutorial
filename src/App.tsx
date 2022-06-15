@@ -5,6 +5,9 @@ import { Status } from './util/StatusEnum';
 import TextCenter from './components/TextCenter';
 import ShowIf from './util/ShowIf';
 import HideIf from './util/HideIf';
+import { BootstrapColor } from './util/BootstrapColor';
+import BootstrapButton from './util/BootstrapButton';
+import React from 'react';
 
 function App() {
   let users = [
@@ -24,17 +27,23 @@ function App() {
       messageCount: 3
     },
   ]
+  const alertUser = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    alert("User clicked me");
+  }
   return (
     <div className="App">
       <TextCenter>
-        <ShowIf condition={true}>
+        <ShowIf condition={false}>
           <ShowStatus statusEnum={Status.Loading} />
           <ShowStatus statusEnum={Status.Success} />
           <ShowStatus statusEnum={Status.Error} />
         </ShowIf>
-        <HideIf condition={false}>
+        <HideIf condition={true}>
           <WelcomeList users={users} />
         </HideIf>
+        <ShowIf condition={true}>
+          <BootstrapButton color={BootstrapColor.danger} onClick={(e) => alertUser(e)}>Click me!</BootstrapButton>
+        </ShowIf>
       </TextCenter>
     </div>
   );
