@@ -8,6 +8,8 @@ import HideIf from './util/HideIf';
 import { BootstrapColor } from './util/BootstrapColor';
 import BootstrapButton from './util/BootstrapButton';
 import React from 'react';
+import LoginOrOutButton from './components/LoginOrOutButton';
+import TextAlign from './util/TextAlign';
 
 function App() {
   let users = [
@@ -32,6 +34,9 @@ function App() {
   }
   return (
     <div className="App">
+      <TextAlign align='right'>
+        <LoginOrOutButton />
+      </TextAlign>
       <TextCenter>
         <ShowIf condition={false}>
           <ShowStatus statusEnum={Status.Loading} />
@@ -42,7 +47,11 @@ function App() {
           <WelcomeList users={users} />
         </HideIf>
         <ShowIf condition={true}>
-          <BootstrapButton color={BootstrapColor.danger} onClick={(e) => alertUser(e)}>Click me!</BootstrapButton>
+          <BootstrapButton
+            color={BootstrapColor.danger}
+            onClick={(e) => alertUser(e)}
+            style={{ border: "10px solid blue" }}
+          >Click me!</BootstrapButton>
         </ShowIf>
       </TextCenter>
     </div>
