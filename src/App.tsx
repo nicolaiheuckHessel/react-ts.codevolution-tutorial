@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import WelcomeList from './components/WelcomeList';
+import ShowStatus from './components/ShowStatus';
+import { Status } from './util/StatusEnum';
+import TextCenter from './components/TextCenter';
+import ShowIf from './util/ShowIf';
+import HideIf from './util/HideIf';
 
 function App() {
+  let users = [
+    {
+      name: "Test user 1",
+      isLoggedIn: true,
+      messageCount: 20
+    },
+    {
+      name: "Test user 2",
+      isLoggedIn: false,
+      messageCount: 0
+    },
+    {
+      name: "Test user 3",
+      isLoggedIn: true,
+      messageCount: 3
+    },
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TextCenter>
+        <ShowIf condition={true}>
+          <ShowStatus statusEnum={Status.Loading} />
+          <ShowStatus statusEnum={Status.Success} />
+          <ShowStatus statusEnum={Status.Error} />
+        </ShowIf>
+        <HideIf condition={false}>
+          <WelcomeList users={users} />
+        </HideIf>
+      </TextCenter>
     </div>
   );
 }
 
 export default App;
+
+// https://www.youtube.com/watch?v=zLyeWSfTMa8&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=97
