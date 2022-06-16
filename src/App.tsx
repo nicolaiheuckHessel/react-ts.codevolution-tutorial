@@ -10,6 +10,7 @@ import BootstrapButton from './util/BootstrapButton';
 import React from 'react';
 import LoginOrOutButton from './components/LoginOrOutButton';
 import TextAlign from './util/TextAlign';
+import OnlyFor from './components/OnlyFor';
 
 function App() {
   let users = [
@@ -32,6 +33,7 @@ function App() {
   const alertUser = (e: React.MouseEvent<HTMLButtonElement>): void => {
     alert("User clicked me");
   }
+  const userRole = "guest";
   return (
     <div className="App">
       <TextAlign align='right'>
@@ -53,6 +55,9 @@ function App() {
             style={{ border: "10px solid blue" }}
           >Click me!</BootstrapButton>
         </ShowIf>
+        <OnlyFor role={userRole} admins><h1>This is for admins</h1></OnlyFor>
+        <OnlyFor role={userRole} users><h1>This is for users</h1></OnlyFor>
+        <OnlyFor role={userRole} guests><h1>This is for guests</h1></OnlyFor>
       </TextCenter>
     </div>
   );
