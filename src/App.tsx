@@ -13,6 +13,7 @@ import TextAlign from './util/TextAlign';
 import OnlyFor from './components/OnlyFor';
 import ToastrTemplateLiterals from './components/ToastrTemplateLiterals';
 import ReUsePropType from './components/ReUsePropType';
+import PassHtmlElement from './components/PassHtmlElement';
 
 function App() {
   let users = [
@@ -63,6 +64,7 @@ function App() {
         <ToastrTemplateLiterals position='center'></ToastrTemplateLiterals>
         <BootstrapButton color={BootstrapColor.primary}>Click me!</BootstrapButton>
         <ReUsePropType user={{ name: "bob", messageCount: 3, isLoggedIn: false }} />
+        <PassHtmlElement tagType='label'>This tag was specified by the parent element</PassHtmlElement>
       </TextCenter>
     </div>
   );
