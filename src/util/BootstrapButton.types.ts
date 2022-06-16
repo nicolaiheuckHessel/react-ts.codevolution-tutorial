@@ -2,8 +2,9 @@ import React from 'react';
 import { BootstrapColor } from './BootstrapColor';
 
 export type BootstrapButtonProps = {
-    children: React.ReactNode;
-    color: BootstrapColor;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    style?: React.CSSProperties;
-};
+    children: String
+    color: BootstrapColor
+    // onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    // style?: React.CSSProperties;
+// } & React.ComponentProps<'button'>;
+} & Omit<Omit<React.ComponentProps<'button'>, 'children'>, 'color'>;

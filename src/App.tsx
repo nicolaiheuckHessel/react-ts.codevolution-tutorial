@@ -60,6 +60,7 @@ function App() {
         <OnlyFor role={userRole} users><h1>This is for users</h1></OnlyFor>
         <OnlyFor role={userRole} guests><h1>This is for guests</h1></OnlyFor>
         <ToastrTemplateLiterals position='center'></ToastrTemplateLiterals>
+        <BootstrapButton color={BootstrapColor.primary}>Click me!</BootstrapButton>
       </TextCenter>
     </div>
   );
