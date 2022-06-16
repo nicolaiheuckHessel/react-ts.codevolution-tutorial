@@ -11,6 +11,7 @@ import React from 'react';
 import LoginOrOutButton from './components/LoginOrOutButton';
 import TextAlign from './util/TextAlign';
 import OnlyFor from './components/OnlyFor';
+import ToastrTemplateLiterals from './components/ToastrTemplateLiterals';
 
 function App() {
   let users = [
@@ -58,6 +59,7 @@ function App() {
         <OnlyFor role={userRole} admins><h1>This is for admins</h1></OnlyFor>
         <OnlyFor role={userRole} users><h1>This is for users</h1></OnlyFor>
         <OnlyFor role={userRole} guests><h1>This is for guests</h1></OnlyFor>
+        <ToastrTemplateLiterals position='center'></ToastrTemplateLiterals>
       </TextCenter>
     </div>
   );
