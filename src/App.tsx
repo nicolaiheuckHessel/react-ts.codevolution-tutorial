@@ -12,6 +12,7 @@ import LoginOrOutButton from './components/LoginOrOutButton';
 import TextAlign from './util/TextAlign';
 import OnlyFor from './components/OnlyFor';
 import ToastrTemplateLiterals from './components/ToastrTemplateLiterals';
+import ReUsePropType from './components/ReUsePropType';
 
 function App() {
   let users = [
@@ -61,6 +62,7 @@ function App() {
         <OnlyFor role={userRole} guests><h1>This is for guests</h1></OnlyFor>
         <ToastrTemplateLiterals position='center'></ToastrTemplateLiterals>
         <BootstrapButton color={BootstrapColor.primary}>Click me!</BootstrapButton>
+        <ReUsePropType user={{ name: "bob", messageCount: 3, isLoggedIn: false }} />
       </TextCenter>
     </div>
   );
